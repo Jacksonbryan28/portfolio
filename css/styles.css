@@ -33,6 +33,25 @@
   object-fit: cover;
 }
 
+/* The image and title scale between a small card and a large hero. Rather
+   than cross-fading a blurry upscaled snapshot with a sharp one, show only
+   the large (hero) snapshot and let it scale: the new one when arriving on a
+   project page, the old one when going back to the home page. */
+.project-page::view-transition-old(*.project-media),
+.project-page::view-transition-old(*.project-title),
+:root:not(.project-page)::view-transition-new(*.project-media),
+:root:not(.project-page)::view-transition-new(*.project-title) {
+  animation: none;
+  opacity: 0;
+}
+
+.project-page::view-transition-new(*.project-media),
+.project-page::view-transition-new(*.project-title),
+:root:not(.project-page)::view-transition-old(*.project-media),
+:root:not(.project-page)::view-transition-old(*.project-title) {
+  animation: none;
+}
+
 /* Description and tags keep their natural size and cross-fade as they glide
    into place, so the text never stretches. (The title is left to scale.) */
 ::view-transition-old(*.project-text),
@@ -72,8 +91,18 @@
   --narrow: 720px;
   --gutter: clamp(16px, 4vw, 48px);
   --radius: 16px;
+  /* Shared by the home cards and project heroes. Keeping them the same shape
+     means the view transition's two snapshots line up, so the image reads as
+     one picture growing rather than two cross-fading. */
+  --media-aspect: 12 / 5;
   --header-h: 64px;
   --section-space: clamp(72px, 10vw, 160px);
+}
+
+@media (max-width: 700px) {
+  :root {
+    --media-aspect: 16 / 9;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -315,7 +344,7 @@ footer p {
 
 .project-card__media {
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--media-aspect);
   margin-bottom: 1.25rem;
   border-radius: var(--radius);
   background: var(--surface);
@@ -335,8 +364,18 @@ footer p {
   transform: scale(1.03);
 }
 
+/* The card title and project page title scale into each other, so they need
+   identical letterforms: Bricolage changes shape with size unless the optical
+   size is pinned. */
+.project-card h3,
+.project-hero__title {
+  font-variation-settings: "opsz" 96;
+  letter-spacing: -0.02em;
+}
+
 .project-card h3 {
   display: inline-block; /* lets the title morph without stretching */
+  view-transition-class: project-title;
   margin-bottom: 0.25rem;
   font-size: 1.5rem;
 }
@@ -386,9 +425,7 @@ footer p {
 .project-hero__media {
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  /* Leave room for the name, description and tags on the first screen. */
-  max-height: max(320px, calc(100svh - var(--header-h) - 360px));
+  aspect-ratio: var(--media-aspect);
   border-radius: var(--radius);
   background: var(--surface);
   view-transition-class: project-media;
@@ -407,6 +444,7 @@ footer p {
 
 .project-hero__title {
   display: inline-block; /* matches the card title so it scales cleanly */
+  view-transition-class: project-title;
   margin-bottom: 0.2em;
 }
 
