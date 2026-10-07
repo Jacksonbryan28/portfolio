@@ -66,7 +66,8 @@
   --accent: #2f55ff;
   --on-accent: #ffffff;
 
-  --font: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Bricolage Grotesque", var(--font);
   --max: 1240px;
   --narrow: 720px;
   --gutter: clamp(16px, 4vw, 48px);
@@ -134,15 +135,26 @@ a {
 
 h1,
 h2,
+h3,
+h4,
+header nav .logo,
+.stats strong,
+.next-project strong {
+  font-family: var(--font-heading);
+}
+
+h1,
+h2,
 h3 {
+  font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   margin: 0 0 0.5em;
 }
 
 h1 {
   font-size: clamp(2.5rem, 7vw, 5.5rem);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 h2 {
@@ -703,7 +715,8 @@ blockquote cite {
 .next-project strong {
   display: block;
   font-size: clamp(2rem, 6vw, 4.5rem);
-  letter-spacing: -0.035em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
