@@ -33,6 +33,26 @@
   object-fit: cover;
 }
 
+/* Description and tags keep their natural size and cross-fade as they glide
+   into place, so the text never stretches. (The title is left to scale.) */
+::view-transition-old(*.project-text),
+::view-transition-new(*.project-text) {
+  width: auto;
+  height: auto;
+}
+
+/* Fade the old text out before the new text fades in, so lines that wrap
+   differently on each page never overlap. */
+::view-transition-old(*.project-text) {
+  animation-duration: 0.2s;
+}
+
+::view-transition-new(*.project-text) {
+  animation-delay: 0.2s;
+  animation-duration: 0.35s;
+  animation-fill-mode: both;
+}
+
 /* ==========================================================================
    Tokens
    ========================================================================== */
@@ -310,12 +330,20 @@ footer p {
 }
 
 .project-card p {
+  width: fit-content;
   margin-bottom: 0.75rem;
   color: var(--muted);
 }
 
+.project-card p,
+.project-card .tags {
+  view-transition-class: project-text;
+}
+
 .tags {
   display: flex;
+  width: fit-content;
+  max-width: 100%;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin: 0;
@@ -340,38 +368,15 @@ footer p {
 .project-hero {
   max-width: var(--max);
   margin-inline: auto;
-  padding: clamp(32px, 6vw, 72px) var(--gutter) 0;
-}
-
-.back-link {
-  display: block;
-  width: fit-content;
-  margin-bottom: 1.5rem;
-  color: var(--muted);
-  font-size: 0.9375rem;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  color: var(--text);
-}
-
-.project-hero__title {
-  display: inline-block; /* matches the card title so it morphs cleanly */
-  margin-bottom: 0.25em;
-}
-
-.project-hero__summary {
-  max-width: 40ch;
-  color: var(--muted);
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
-  line-height: 1.45;
+  padding: clamp(16px, 3vw, 40px) var(--gutter) 0;
 }
 
 .project-hero__media {
   overflow: hidden;
+  width: 100%;
   aspect-ratio: 16 / 9;
-  margin-top: clamp(24px, 4vw, 48px);
+  /* Leave room for the name, description and tags on the first screen. */
+  max-height: max(320px, calc(100svh - var(--header-h) - 360px));
   border-radius: var(--radius);
   background: var(--surface);
   view-transition-class: project-media;
@@ -382,6 +387,29 @@ footer p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.project-hero__intro {
+  margin-top: clamp(32px, 5vw, 64px);
+}
+
+.project-hero__title {
+  display: inline-block; /* matches the card title so it scales cleanly */
+  margin-bottom: 0.2em;
+}
+
+.project-hero__summary {
+  width: fit-content;
+  max-width: 40ch;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.45;
+}
+
+.project-hero__summary,
+.project-hero__tags {
+  view-transition-class: project-text;
 }
 
 /* --- 2. Overview with sticky details ---------------------------------- */

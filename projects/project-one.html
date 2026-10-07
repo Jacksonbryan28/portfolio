@@ -23,14 +23,11 @@
 
     <!-- ===================================================================
          1. Hero
-         The media and title share view-transition-names with the card on the
-         home page, so they morph from the card into place on navigation.
+         Same order as the home page card: image, name, description, tags.
+         Each piece shares a view-transition-name with its counterpart on the
+         card, so the card expands into this hero when you click through.
          =================================================================== -->
     <section class="project-hero">
-      <a href="../index.html#projects" class="back-link">&larr; All projects</a>
-      <h1 class="project-hero__title" style="view-transition-name: project-one-title">Project One</h1>
-      <p class="project-hero__summary">A one-sentence summary of the product and the problem it solves.</p>
-
       <figure class="project-hero__media" style="view-transition-name: project-one-media">
         <img src="../images/project-one/hero.svg" alt="Describe the product shown in the hero image" width="1600" height="900">
 
@@ -40,6 +37,16 @@
                autoplay muted loop playsinline></video>
         -->
       </figure>
+
+      <div class="project-hero__intro">
+        <h1 class="project-hero__title" style="view-transition-name: project-one-title">Project One</h1>
+        <p class="project-hero__summary" style="view-transition-name: project-one-desc">A short description of what this project does and why you built it.</p>
+        <ul class="tags project-hero__tags" style="view-transition-name: project-one-tags">
+          <li>Product design</li>
+          <li>UX research</li>
+          <li>Prototyping</li>
+        </ul>
+      </div>
     </section>
 
     <!-- ===================================================================
