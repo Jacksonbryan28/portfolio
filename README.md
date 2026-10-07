@@ -32,21 +32,26 @@ portfolio/
 └── README.md
 ```
 
-Clicking a project card on the home page morphs its image and title into the
-project page's hero using cross-document view transitions (Chrome, Edge and
+Clicking a project card on the home page morphs its image, title, description and
+tags into the project page's hero using cross-document view transitions (Chrome, Edge and
 Safari 18.2+; other browsers navigate normally). To add a project, copy
 `projects/project-one.html` and give the card and hero a matching, unique
 `view-transition-name` (e.g. `project-two-media`, `project-two-title`).
 
 ## Viewing it locally
 
-Clone the repo and open `index.html` in your browser:
+Clone the repo and start a local web server from inside the folder:
 
 ```bash
 git clone https://github.com/jacksonbryan28/portfolio.git
 cd portfolio
-open index.html   # or just double-click the file
+python3 -m http.server
 ```
+
+Then open http://localhost:8000. Double-clicking `index.html` also opens the
+site, but the page transitions only play when it's served from a web address.
+If styles look out of date, hard refresh with Cmd+Shift+R (Ctrl+Shift+R on
+Windows).
 
 ## Get in touch
 
