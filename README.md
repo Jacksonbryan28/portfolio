@@ -24,9 +24,11 @@ The site is built with plain HTML and CSS, with no frameworks or build step.
 portfolio/
 ├── index.html              # Home page
 ├── projects/
-│   └── project-one.html    # Project page template (case study)
+│   ├── ponder.html         # Ponder case study
+│   └── project-one.html    # Blank project page template
 ├── images/
-│   └── project-one/        # Hero, feature and case study media
+│   ├── ponder/             # Ponder images (exported from Figma)
+│   └── project-one/        # Template placeholder images
 ├── css/
 │   └── styles.css          # Site styles
 └── README.md

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponder | Jackson Bryan</title>
+  <meta name="description" content="Ponder: an emotional wellness device and app that helps overthinkers reframe their thoughts through guided introspection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Jackson Bryan</a>
+      <ul>
+        <li><a href="../index.html">UX</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================================================================
+         1. Hero
+         Same order as the home page card: image, name, description, tags.
+         Each piece shares a view-transition-name with its counterpart on the
+         card, so the card expands into this hero when you click through.
+         =================================================================== -->
+    <section class="project-hero">
+      <figure class="project-hero__media" style="view-transition-name: ponder-media">
+        <img src="../images/ponder/hero.webp" alt="The Ponder wordmark on a soft lilac gradient" width="1440" height="561">
+      </figure>
+
+      <div class="project-hero__intro">
+        <h1 class="project-hero__title" style="view-transition-name: ponder-title">Ponder</h1>
+        <p class="project-hero__summary" style="view-transition-name: ponder-desc">An emotional wellness device and app that helps overthinkers reframe their thoughts.</p>
+        <ul class="tags project-hero__tags" style="view-transition-name: ponder-tags">
+          <li>UX research</li>
+          <li>Product design</li>
+          <li>Device + app</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         2. Overview
+         =================================================================== -->
+    <section class="project-overview" aria-labelledby="overview-heading">
+      <aside class="project-overview__details">
+        <dl>
+          <div>
+            <dt>Deliverable</dt>
+            <dd>Emotional wellness device and app</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>SCAD project with Nicolas Pellegrino, Nicola Brandon, Drew Murray and Jahi Thomas</dd>
+          </div>
+          <div>
+            <dt>My role</dt>
+            <dd>Product</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>20 weeks</dd>
+          </div>
+        </dl>
+        <!-- TODO: link to the process book -->
+        <a href="#" class="button">Process book</a>
+      </aside>
+
+      <div class="project-overview__body">
+        <p class="eyebrow">Problem statement</p>
+        <h2 id="overview-heading">Overthinkers dwell on preconceived negative perceptions that reinforce unwanted behaviors.</h2>
+
+        <h3>Summary</h3>
+        <p class="lead">How we compute the world around us through thoughts and feelings has a direct effect on how we navigate and perceive it. With that, we set out to help overthinkers reframe their thought process through guided introspection. Paired with a platform that helps users understand how they feel, we sought to create a solution that ties directly into one&rsquo;s emotional wellbeing and builds an understanding of the effect of your thoughts.</p>
+
+        <h3>Our solution</h3>
+        <p>A device to help overthinkers attain a more realistic perception of their image and social interactions by reframing their thought process. Achieved through guided introspection and the visualization of convoluted thoughts and emotions.</p>
+      </div>
+    </section>
+
+    <!-- Video: drop the Ponder product video in here, e.g.
+    <figure class="project-video">
+      <video src="../images/ponder/ponder.mp4" poster="../images/ponder/feature-sessions.webp"
+             autoplay muted loop playsinline></video>
+    </figure>
+    -->
+
+    <!-- ===================================================================
+         3. Key features
+         =================================================================== -->
+    <section class="features" aria-label="Key features">
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Sessions</p>
+          <h2>Guiding thoughts and emotion</h2>
+          <p>Sessions allow you to work through your thoughts, one at a time. Using conversational UI, you are guided through ideas to reframe them. Questions are intelligently generated through a combination of your vocal responses and the emotions you feel while answering.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/ponder/feature-sessions.webp" alt="Three Ponder Stones showing a guided session asking questions such as &ldquo;Why would tonight be different?&rdquo;" width="1439" height="600" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Reflection</p>
+          <h2>A chance to reflect</h2>
+          <p>After you complete a Session, the Stone showcases a visualization of the emotions you felt throughout the Session and the questions and responses that triggered them. Each emotion is tied to a color, teaching you which emotions are tied to which thoughts.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/ponder/feature-reflect.webp" alt="A Ponder Stone showing the emotions felt during a session, with a colorful ribbon of emotion behind it" width="1439" height="600" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Companion app</p>
+          <h2>Understand your emotional wellbeing</h2>
+          <p>With our paired app, a complete emotional profile is built around you and grows richer as you complete more Sessions. This allows for a deep understanding of how you feel.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/ponder/feature-wellbeing.webp" alt="The Ponder app showing an emotional profile as colored rings for each emotion" width="1439" height="600" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Insights</p>
+          <h2>See your growth and journey</h2>
+          <p>Dive into each emotion and track how feelings fluctuate based on day, time, and even weather. This allows you to reflect and dig deep into why you feel the way you do.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/ponder/feature-growth.webp" alt="The Ponder app showing anxiety trends by time of day and weather" width="1440" height="600" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Beyond sessions</p>
+          <h2>More ways to help</h2>
+          <p>Ponder does more than work with your thoughts. It also offers intuitive exercises for your emotions, a way to quickly express your thoughts no matter where you are, and the option to plug your therapist into the platform so they get updates on your emotional wellbeing and can offer better care.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/ponder/feature-more.webp" alt="Therapist pass-off and quick session screens in the app, next to a Stone showing a grounding exercise" width="1440" height="600" loading="lazy">
+        </figure>
+      </article>
+
+    </section>
+
+    <!-- Second video slot from the Figma layout. -->
+
+    <!-- ===================================================================
+         4. Case study deep dive
+         =================================================================== -->
+    <section class="case-study" aria-labelledby="case-study-heading">
+      <div class="case-study__header">
+        <p class="eyebrow">Our process</p>
+        <h2 id="case-study-heading">Process, the short version</h2>
+      </div>
+
+      <div class="case-study__layout">
+        <nav class="case-study__toc" aria-label="Case study contents">
+          <ol>
+            <li><a href="#process">Timeline</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#ideation">Ideation</a></li>
+            <li><a href="#final-product">Final product</a></li>
+            <li><a href="#what-i-learned">What I learned</a></li>
+          </ol>
+        </nav>
+
+        <div class="case-study__body">
+
+          <section id="process">
+            <h3>Timeline</h3>
+            <p>Ponder was a 20-week project, so we were able to be very thorough with our design process. The first 10 weeks focused on research, finding our problem and solution, and designing a first iteration. The second 10 weeks were used to conduct more interviews, user test, add features and update the design.</p>
+            <figure>
+              <img src="../images/ponder/timeline.webp" alt="Process timeline: 01 Research, 02 Continued research, 03 Final problem and opportunity space, 04 Original interface, 05 User testing, 06 Final interface and story" width="1440" height="600" loading="lazy">
+            </figure>
+          </section>
+
+          <section id="research">
+            <h3>Research</h3>
+            <h4>Research methods</h4>
+            <p>We started by researching journals and articles about overthinkers. Once we had a good understanding of the area, we developed a research plan. We sent out a quick survey to see how people felt about products in this space, and conducted a total of 20 interviews. Afterwards we recapped every interview to get the team on the same page, and created an affinity map to find themes. After our first design iteration we conducted 10 more interviews to tie up loose ends, then ran user testing to get feedback on our original designs.</p>
+
+            <h4>What we learned</h4>
+            <p>One of the most interesting things we found is that overthinkers break situations down into three parts: before, during and after. This was a common theme throughout our research, regardless of what each person overthought about. We also learned that people typically overthink in only one of these three parts, so it was important for us to design a solution for all three.</p>
+          </section>
+
+          <section id="ideation">
+            <h3>Ideation</h3>
+            <div class="image-rows">
+              <div class="image-row">
+                <img style="flex-grow: 540" src="../images/ponder/ideation-canvas.webp" alt="Early concept: &ldquo;A canvas for solitude&rdquo;" width="540" height="200" loading="lazy">
+                <img style="flex-grow: 380" src="../images/ponder/ideation-modular.webp" alt="Early concept: &ldquo;Modular solution&rdquo;" width="380" height="200" loading="lazy">
+              </div>
+              <div class="image-row">
+                <img style="flex-grow: 300" src="../images/ponder/ideation-mindmap.webp" alt="Whiteboard mind map of opportunities" width="300" height="200" loading="lazy">
+                <img style="flex-grow: 620" src="../images/ponder/ideation-whiteboard.webp" alt="Whiteboard sketch of the before, during and after framework" width="620" height="200" loading="lazy">
+              </div>
+            </div>
+            <p>After gathering and analyzing our research, we started ideating. Originally our concepts dealt with an interactive space, but after our initial round of ideation we shifted to a physical device to interact with. We weren&rsquo;t sure at first what form factor the device would take, but we eventually settled on a small handheld device called the Ponder Stone.</p>
+          </section>
+
+          <section id="final-product">
+            <h3>Final product</h3>
+            <figure>
+              <img src="../images/ponder/final-product.webp" alt="Two Ponder Stones mid-session" width="1439" height="628" loading="lazy">
+            </figure>
+            <p>Ponder is a wellness device with a companion app. Guided sessions reframe an overthinker&rsquo;s thought process to help calm them down. Each session can be recapped, and an emotional profile is built within the app. Users can dive into each of their individual emotions in the app, and do quick sessions whenever they&rsquo;re away from their Stone. Ponder also has optional therapist integration, so users&rsquo; therapists can see their emotional profile too.</p>
+          </section>
+
+          <section id="what-i-learned">
+            <h3>What I learned</h3>
+            <figure>
+              <img src="../images/ponder/team.webp" alt="The Ponder team: Nicola Brandon (content), Jackson Bryan (product), Drew Murray (graphic), Jahi Thomas (graphic) and Nicolas Pellegrino (visual)" width="1439" height="628" loading="lazy">
+            </figure>
+            <p>During my time at SCAD, this was the longest project I worked on, covering two quarters (20 weeks). The extra time let us go more in depth than ever before on a school project. After presenting our first design to the class 10 weeks in, we were able to user test, refine, and add features that were missing from the original design. This was the first time I conducted thorough user testing, and hearing from future users helped push our design to the next level.</p>
+            <p>Want the full story? The process book covers all 20 weeks, including research, ideation, wireframes and final designs.</p>
+            <!-- TODO: link to the process book -->
+            <a href="#" class="button">View the process book</a>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. Next project
+         =================================================================== -->
+    <nav class="next-project" aria-label="Next project">
+      <!-- TODO: link to the Lenovo project page -->
+      <a href="#">
+        <span class="eyebrow">Next project</span>
+        <strong>Lenovo &rarr;</strong>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jackson Bryan</p>
+    <ul>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="mailto:jacksonbryan280@gmail.com">Email</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
