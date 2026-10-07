@@ -22,11 +22,21 @@ The site is built with plain HTML and CSS, with no frameworks or build step.
 
 ```
 portfolio/
-├── index.html      # Home page
+├── index.html              # Home page
+├── projects/
+│   └── project-one.html    # Project page template (case study)
+├── images/
+│   └── project-one/        # Hero, feature and case study media
 ├── css/
-│   └── styles.css  # Site styles
+│   └── styles.css          # Site styles
 └── README.md
 ```
+
+Clicking a project card on the home page morphs its image and title into the
+project page's hero using cross-document view transitions (Chrome, Edge and
+Safari 18.2+; other browsers navigate normally). To add a project, copy
+`projects/project-one.html` and give the card and hero a matching, unique
+`view-transition-name` (e.g. `project-two-media`, `project-two-title`).
 
 ## Viewing it locally
 

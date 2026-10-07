@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project One | Your Name</title>
+  <meta name="description" content="Case study: a one-sentence summary of Project One.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Your Name</a>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================================================================
+         1. Hero
+         The media and title share view-transition-names with the card on the
+         home page, so they morph from the card into place on navigation.
+         =================================================================== -->
+    <section class="project-hero">
+      <a href="../index.html#projects" class="back-link">&larr; All projects</a>
+      <h1 class="project-hero__title" style="view-transition-name: project-one-title">Project One</h1>
+      <p class="project-hero__summary">A one-sentence summary of the product and the problem it solves.</p>
+
+      <figure class="project-hero__media" style="view-transition-name: project-one-media">
+        <img src="../images/project-one/hero.svg" alt="Describe the product shown in the hero image" width="1600" height="900">
+
+        <!-- For a GIF, just point the img src at the .gif file.
+             For a video, swap the img above for:
+        <video src="../images/project-one/hero.mp4" poster="../images/project-one/hero.jpg"
+               autoplay muted loop playsinline></video>
+        -->
+      </figure>
+    </section>
+
+    <!-- ===================================================================
+         2. Overview
+         Left column sticks while the overview text scrolls past.
+         =================================================================== -->
+    <section class="project-overview" aria-labelledby="overview-heading">
+      <aside class="project-overview__details">
+        <dl>
+          <div>
+            <dt>Role</dt>
+            <dd>Lead product designer</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>12 weeks, 2026</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>1 designer, 3 engineers, 1 PM</dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>Figma, Protopie, Maze</dd>
+          </div>
+          <div>
+            <dt>Platform</dt>
+            <dd>iOS, Android, Web</dd>
+          </div>
+        </dl>
+        <a href="#" class="button">View live product</a>
+      </aside>
+
+      <div class="project-overview__body">
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-heading">A headline that frames the challenge in one bold statement.</h2>
+
+        <p class="lead">Two or three sentences that set the scene: what the product is, who it's for and why this project mattered. Someone skimming should understand the project from this paragraph alone.</p>
+
+        <h3>The problem</h3>
+        <p>Describe the problem users or the business were facing. Be specific about who was affected and how you knew it was a problem: data, support tickets, user interviews or stakeholder goals.</p>
+
+        <h3>The goal</h3>
+        <p>What were you trying to achieve? State the goal and how success would be measured. Mention any constraints, such as time, technology or business requirements, that shaped the work.</p>
+
+        <h3>My role</h3>
+        <p>Explain what you personally owned, from research through to final design and hand-off, and who you worked alongside.</p>
+
+        <ul class="stats">
+          <li><strong>+32%</strong><span>Outcome metric one</span></li>
+          <li><strong>4.8&#9733;</strong><span>Outcome metric two</span></li>
+          <li><strong>&minus;45%</strong><span>Outcome metric three</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         3. Key features
+         One large section per feature. Copy an <article> to add more.
+         =================================================================== -->
+    <section class="features" aria-label="Key features">
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Key feature 01</p>
+          <h2>Name of the first key feature</h2>
+          <p>One or two sentences on what this feature does and why it matters to the user.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/project-one/feature-1.svg" alt="Describe the first feature" width="1600" height="1000" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Key feature 02</p>
+          <h2>Name of the second key feature</h2>
+          <p>One or two sentences on what this feature does and why it matters to the user.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/project-one/feature-2.svg" alt="Describe the second feature" width="1600" height="1000" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Key feature 03</p>
+          <h2>Name of the third key feature</h2>
+          <p>One or two sentences on what this feature does and why it matters to the user.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/project-one/feature-3.svg" alt="Describe the third feature" width="1600" height="1000" loading="lazy">
+        </figure>
+      </article>
+
+    </section>
+
+    <!-- ===================================================================
+         4. Case study deep dive
+         A sticky contents list on the left links to each section.
+         =================================================================== -->
+    <section class="case-study" aria-labelledby="case-study-heading">
+      <div class="case-study__header">
+        <p class="eyebrow">Case study</p>
+        <h2 id="case-study-heading">How we got there</h2>
+      </div>
+
+      <div class="case-study__layout">
+        <nav class="case-study__toc" aria-label="Case study contents">
+          <ol>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#design">Design decisions</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+          </ol>
+        </nav>
+
+        <div class="case-study__body">
+
+          <section id="research">
+            <h3>Research</h3>
+            <p>How did you learn about the problem? Describe the methods you used (interviews, surveys, analytics, competitor analysis) and who you spoke to.</p>
+            <figure>
+              <img src="../images/project-one/research.svg" alt="Describe the research artefact" width="1600" height="900" loading="lazy">
+              <figcaption>Caption describing the research artefact, such as an affinity map or journey map.</figcaption>
+            </figure>
+            <p>Summarise what the research showed before moving on to the key insights.</p>
+          </section>
+
+          <section id="insights">
+            <h3>Insights</h3>
+            <p>Pull out the two or three findings that shaped the direction of the project.</p>
+            <blockquote>
+              &ldquo;A memorable quote from a user interview that captures the core problem.&rdquo;
+              <cite>Participant, user interview</cite>
+            </blockquote>
+            <p>Explain how these insights changed or confirmed your thinking.</p>
+          </section>
+
+          <section id="process">
+            <h3>Process</h3>
+            <p>Walk through how the design evolved: early sketches, wireframes, prototypes and testing rounds. Show the ideas that didn't make it and why.</p>
+            <figure>
+              <img src="../images/project-one/process.svg" alt="Describe the sketches or wireframes" width="1600" height="800" loading="lazy">
+              <figcaption>Early explorations and wireframes.</figcaption>
+            </figure>
+            <p>Describe what you learned from testing and how each round fed into the next.</p>
+          </section>
+
+          <section id="design">
+            <h3>Design decisions</h3>
+            <p>Highlight the key decisions behind the final design and the reasoning behind each one, including trade-offs you had to make.</p>
+            <figure>
+              <img src="../images/project-one/final.svg" alt="Describe the final design" width="1600" height="900" loading="lazy">
+              <figcaption>The final design.</figcaption>
+            </figure>
+          </section>
+
+          <section id="results">
+            <h3>Results</h3>
+            <p>What happened after launch? Share metrics, user feedback or business outcomes, and connect them back to the original goal.</p>
+          </section>
+
+          <section id="reflection">
+            <h3>Reflection</h3>
+            <p>What did you learn, and what would you do differently next time? A short honest reflection shows how you grow as a designer.</p>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. Next project
+         =================================================================== -->
+    <nav class="next-project" aria-label="Next project">
+      <a href="#">
+        <span class="eyebrow">Next project</span>
+        <strong>Project Two &rarr;</strong>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Your Name</p>
+    <ul>
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Email</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
