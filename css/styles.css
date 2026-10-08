@@ -464,7 +464,8 @@ footer p {
 
 /* Scroll-to-expand (driven by js/project-hero.js). While the pin is in view
    the hero sticks below the header; --p goes from 0 to 1 over the first part
-   of the scroll and the image grows from its resting size to full-bleed,
+   of the scroll and the image grows from its resting size to full-bleed
+   (capped at 1440px wide),
    with its bottom edge staying put. At --p: 0 it matches the resting layout
    exactly, so the view transition from the home page is unaffected. */
 .project-hero-pin {
@@ -482,7 +483,7 @@ footer p {
   aspect-ratio: auto;
   margin-top: calc(var(--rise) * var(--p, 0) * -1);
   margin-inline: calc(var(--bleed) * var(--p, 0) * -1);
-  border-radius: calc(var(--radius) * (1 - var(--p, 0)));
+  border-radius: calc(var(--radius) * (1 - var(--p, 0) * var(--square, 1)));
 }
 
 /* --- 2. Overview with sticky details ---------------------------------- */

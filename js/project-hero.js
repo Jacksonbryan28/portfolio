@@ -1,6 +1,6 @@
 // Project hero: as you start scrolling, the hero image grows out to the full
-// width of the window and up to the header while the page holds still. Once
-// it's full-bleed, the page scrolls as normal.
+// width of the window (up to 1440px) and up to the header while the page
+// holds still. Once it's fully expanded, the page scrolls as normal.
 //
 // The hero sits in a taller "pin" container and sticks below the header, so
 // the first `distance` pixels of scrolling drive the expansion instead of
@@ -11,6 +11,7 @@
   const media = hero && hero.querySelector('.project-hero__media');
   if (!media || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const maxWidth = 1440;
   const header = document.querySelector('header');
   let distance = 0;
   let headerHeight = 0;
@@ -26,7 +27,12 @@
     headerHeight = header ? header.offsetHeight : 0;
     distance = Math.round(Math.min(window.innerHeight * 0.5, 480));
 
-    hero.style.setProperty('--bleed', (viewport - box.width) / 2 + 'px');
+    // Grow to the full window width, but no wider than maxWidth so it still
+    // looks composed on ultra-wide monitors.
+    const target = Math.min(viewport, maxWidth);
+    hero.style.setProperty('--bleed', (target - box.width) / 2 + 'px');
+    // Only square the corners off when the image actually reaches the edges.
+    hero.style.setProperty('--square', target === viewport ? 1 : 0);
     hero.style.setProperty('--rise', parseFloat(getComputedStyle(hero).paddingTop) + 'px');
     hero.style.setProperty('--h0', box.height + 'px');
     hero.classList.add('is-expanding');
