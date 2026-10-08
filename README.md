@@ -18,7 +18,7 @@ This portfolio is where I collect what I've made, show how I think through a pro
 
 ## Built with
 
-The site is built with plain HTML and CSS, with no frameworks or build step.
+The site is built with plain HTML, CSS and a little JavaScript, with no frameworks or build step.
 
 ```
 portfolio/
@@ -31,6 +31,8 @@ portfolio/
 │   └── project-one/        # Template placeholder images
 ├── css/
 │   └── styles.css          # Site styles
+├── js/
+│   └── project-hero.js     # Expands the project hero to full width on scroll
 └── README.md
 ```
 

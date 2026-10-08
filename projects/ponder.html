@@ -30,21 +30,25 @@
          Each piece shares a view-transition-name with its counterpart on the
          card, so the card expands into this hero when you click through.
          =================================================================== -->
-    <section class="project-hero">
-      <figure class="project-hero__media" style="view-transition-name: ponder-media">
-        <img src="../images/ponder/hero.webp" alt="The Ponder wordmark on a soft lilac gradient" width="1440" height="561">
-      </figure>
+    <!-- The pin holds the hero in place while the image expands to full
+         width at the start of the scroll (see js/project-hero.js). -->
+    <div class="project-hero-pin">
+      <section class="project-hero">
+        <figure class="project-hero__media" style="view-transition-name: ponder-media">
+          <img src="../images/ponder/hero.webp" alt="The Ponder wordmark on a soft lilac gradient" width="1440" height="561">
+        </figure>
 
-      <div class="project-hero__intro">
-        <h1 class="project-hero__title" style="view-transition-name: ponder-title">Ponder</h1>
-        <p class="project-hero__summary" style="view-transition-name: ponder-desc">An emotional wellness device and app that helps overthinkers reframe their thoughts.</p>
-        <ul class="tags project-hero__tags" style="view-transition-name: ponder-tags">
-          <li>UX research</li>
-          <li>Product design</li>
-          <li>Device + app</li>
-        </ul>
-      </div>
-    </section>
+        <div class="project-hero__intro">
+          <h1 class="project-hero__title" style="view-transition-name: ponder-title">Ponder</h1>
+          <p class="project-hero__summary" style="view-transition-name: ponder-desc">An emotional wellness device and app that helps overthinkers reframe their thoughts.</p>
+          <ul class="tags project-hero__tags" style="view-transition-name: ponder-tags">
+            <li>UX research</li>
+            <li>Product design</li>
+            <li>Device + app</li>
+          </ul>
+        </div>
+      </section>
+    </div>
 
     <!-- ===================================================================
          2. Overview
@@ -253,6 +257,8 @@
       <li><a href="mailto:jacksonbryan280@gmail.com">Email</a></li>
     </ul>
   </footer>
+
+  <script src="../js/project-hero.js" defer></script>
 
 </body>
 </html>

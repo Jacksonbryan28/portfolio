@@ -30,27 +30,31 @@
          Each piece shares a view-transition-name with its counterpart on the
          card, so the card expands into this hero when you click through.
          =================================================================== -->
-    <section class="project-hero">
-      <figure class="project-hero__media" style="view-transition-name: project-one-media">
-        <img src="../images/project-one/hero.svg" alt="Describe the product shown in the hero image" width="1600" height="900">
+    <!-- The pin holds the hero in place while the image expands to full
+         width at the start of the scroll (see js/project-hero.js). -->
+    <div class="project-hero-pin">
+      <section class="project-hero">
+        <figure class="project-hero__media" style="view-transition-name: project-one-media">
+          <img src="../images/project-one/hero.svg" alt="Describe the product shown in the hero image" width="1600" height="900">
 
-        <!-- For a GIF, just point the img src at the .gif file.
-             For a video, swap the img above for:
-        <video src="../images/project-one/hero.mp4" poster="../images/project-one/hero.jpg"
-               autoplay muted loop playsinline></video>
-        -->
-      </figure>
+          <!-- For a GIF, just point the img src at the .gif file.
+               For a video, swap the img above for:
+          <video src="../images/project-one/hero.mp4" poster="../images/project-one/hero.jpg"
+                 autoplay muted loop playsinline></video>
+          -->
+        </figure>
 
-      <div class="project-hero__intro">
-        <h1 class="project-hero__title" style="view-transition-name: project-one-title">Project One</h1>
-        <p class="project-hero__summary" style="view-transition-name: project-one-desc">A short description of what this project does and why you built it.</p>
-        <ul class="tags project-hero__tags" style="view-transition-name: project-one-tags">
-          <li>Product design</li>
-          <li>UX research</li>
-          <li>Prototyping</li>
-        </ul>
-      </div>
-    </section>
+        <div class="project-hero__intro">
+          <h1 class="project-hero__title" style="view-transition-name: project-one-title">Project One</h1>
+          <p class="project-hero__summary" style="view-transition-name: project-one-desc">A short description of what this project does and why you built it.</p>
+          <ul class="tags project-hero__tags" style="view-transition-name: project-one-tags">
+            <li>Product design</li>
+            <li>UX research</li>
+            <li>Prototyping</li>
+          </ul>
+        </div>
+      </section>
+    </div>
 
     <!-- ===================================================================
          2. Overview
@@ -244,6 +248,8 @@
       <li><a href="#">Email</a></li>
     </ul>
   </footer>
+
+  <script src="../js/project-hero.js" defer></script>
 
 </body>
 </html>
