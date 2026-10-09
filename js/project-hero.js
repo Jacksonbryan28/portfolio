@@ -2,12 +2,14 @@
 // width of the window (up to 1440px) and up to the header while the page
 // holds still. Once it's fully expanded, the page scrolls as normal.
 //
-// The hero sits in a taller "pin" container and sticks below the header, so
-// the first `distance` pixels of scrolling drive the expansion instead of
-// moving the page. Progress (0 → 1) is passed to CSS as --p.
+// The page's <main> sits inside a "hold" container that's taller than it by
+// `distance` pixels, and sticks below the header. So for the first `distance`
+// pixels of scrolling nothing on the page moves; that scroll drives the
+// expansion instead. Progress (0 → 1) is passed to CSS as --p.
 (() => {
-  const pin = document.querySelector('.project-hero-pin');
-  const hero = pin && pin.querySelector('.project-hero');
+  const hold = document.querySelector('.project-hold');
+  const main = hold && hold.querySelector('main');
+  const hero = main && main.querySelector('.project-hero');
   const media = hero && hero.querySelector('.project-hero__media');
   if (!media || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -20,30 +22,42 @@
   function measure() {
     // Measure the resting layout, then switch on the expanding styles.
     hero.classList.remove('is-expanding');
-    pin.style.height = '';
 
     const box = media.getBoundingClientRect();
     const viewport = document.documentElement.clientWidth;
     headerHeight = header ? header.offsetHeight : 0;
-    distance = Math.round(Math.min(window.innerHeight * 0.5, 480));
 
     // Grow to the full window width, but no wider than maxWidth so it still
     // looks composed on ultra-wide monitors.
     const target = Math.min(viewport, maxWidth);
-    hero.style.setProperty('--bleed', (target - box.width) / 2 + 'px');
+    const bleed = (target - box.width) / 2;
+    const rise = parseFloat(getComputedStyle(hero).paddingTop);
+
+    // Hold for longer when the image has further to grow: a short flick on a
+    // phone, up to 480px on a large screen.
+    distance = Math.round(Math.min(Math.max((bleed + rise) * 2.5, 120), 480));
+
+    hero.style.setProperty('--bleed', bleed + 'px');
     // Only square the corners off when the image actually reaches the edges.
     hero.style.setProperty('--square', target === viewport ? 1 : 0);
-    hero.style.setProperty('--rise', parseFloat(getComputedStyle(hero).paddingTop) + 'px');
+    hero.style.setProperty('--rise', rise + 'px');
     hero.style.setProperty('--h0', box.height + 'px');
     hero.classList.add('is-expanding');
+    hold.classList.add('is-holding');
 
-    pin.style.height = hero.offsetHeight + distance + 'px';
+    sizeHold();
     update();
+  }
+
+  // The hold container is the page's height plus the hold distance. Keep it
+  // in step if the page's height changes (e.g. images or fonts loading).
+  function sizeHold() {
+    hold.style.height = main.offsetHeight + distance + 'px';
   }
 
   function update() {
     ticking = false;
-    const scrolled = headerHeight - pin.getBoundingClientRect().top;
+    const scrolled = headerHeight - hold.getBoundingClientRect().top;
     const p = Math.min(Math.max(scrolled / distance, 0), 1);
     hero.style.setProperty('--p', p.toFixed(4));
   }
@@ -59,6 +73,7 @@
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', measure);
   addEventListener('pageshow', measure);
-  // Re-measure once fonts load, since they can change the hero's height.
+  if (window.ResizeObserver) new ResizeObserver(sizeHold).observe(main);
+  // Re-measure once fonts load, since they can change the hero's size.
   if (document.fonts) document.fonts.ready.then(measure);
 })();
