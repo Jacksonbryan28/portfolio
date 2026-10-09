@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="project-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluency Align | Jackson Bryan</title>
+  <meta name="description" content="Fluency Align: AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="../css/styles.css?v=20261009b">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Jackson Bryan</a>
+      <ul>
+        <li><a href="../index.html">UX</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- The hold container gives the page extra scroll room so it can stay
+       still while the hero image expands (see js/project-hero.js). -->
+  <div class="project-hold">
+  <main>
+
+    <!-- ===================================================================
+         1. Hero
+         Same order as the home page card: image, name, description, tags.
+         Each piece shares a view-transition-name with its counterpart on the
+         card, so the card expands into this hero when you click through.
+         =================================================================== -->
+    <section class="project-hero">
+      <figure class="project-hero__media" style="view-transition-name: fluency-media">
+        <img src="../images/fluency-align/hero.webp" alt="The M*Modal Fluency Align logo on a dark banner" width="2400" height="937">
+      </figure>
+
+      <div class="project-hero__intro">
+        <h1 class="project-hero__title" style="view-transition-name: fluency-title">Fluency Align</h1>
+        <p class="project-hero__summary" style="view-transition-name: fluency-desc">AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.</p>
+        <ul class="tags project-hero__tags" style="view-transition-name: fluency-tags">
+          <li>Enterprise UX</li>
+          <li>AI</li>
+          <li>Healthcare</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         2. Overview
+         =================================================================== -->
+    <section class="project-overview" aria-labelledby="overview-heading">
+      <aside class="project-overview__details">
+        <dl>
+          <div>
+            <dt>Deliverable</dt>
+            <dd>Workbench designs with a transcript, a draft note and evidence mapping</dd>
+          </div>
+          <div>
+            <dt>Setting</dt>
+            <dd>Solventum (formerly 3M) project in partnership with Amazon Web Services</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>6 weeks</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <div class="project-overview__body">
+        <p class="eyebrow">The problem</p>
+        <h2 id="overview-heading">How can we use AI from our AWS HealthScribe partnership to improve the scribe workflow and turnaround time?</h2>
+
+        <h3>Summary</h3>
+        <p class="lead">Fluency Align is an ambient note-generation service by Solventum (formerly 3M) that saves providers hours of documentation each week. Providers record their visits, and the audio streams to our scribing workbench, where scribes listen and write the note. The provider then reviews it and signs off.</p>
+
+        <h3>Our solution</h3>
+        <p>Improve the Fluency Align workbench with three AI components: a draft note, a transcript and evidence mapping. Together they reduce the time it takes to get notes back to providers, while also helping to train the AI model.</p>
+
+        <ul class="stats">
+          <li><strong>24&rarr;12h</strong><span>Note turnaround time</span></li>
+          <li><strong>8</strong><span>Scribes tested the mid-fidelity prototype</span></li>
+          <li><strong>60%</strong><span>Of scribes preferred AI suggestions as they work</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Video: drop the Fluency Align video in here, e.g.
+    <figure class="project-video">
+      <video src="../images/fluency-align/fluency-align.mp4" poster="../images/fluency-align/workbench.webp"
+             autoplay muted loop playsinline></video>
+    </figure>
+    -->
+
+    <!-- ===================================================================
+         3. Key features
+         =================================================================== -->
+    <section class="features" aria-label="Key features">
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">The product</p>
+          <h2>Fluency Align workbench &times; AWS</h2>
+          <p>The AWS integration helps scribes document jobs faster. The transcript makes the audio easier to follow, and the draft note gives scribes a framework to build on instead of starting every job from scratch. Evidence mapping links the transcript to the generated note, so you know every part of the note came from the visit; if it can&rsquo;t be connected, it isn&rsquo;t included.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/fluency-align/workbench.webp" alt="The Fluency Align workbench on a desktop monitor" width="2400" height="1842" loading="lazy">
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">Evidence mapping</p>
+          <h2>How it works</h2>
+          <p>The provider&rsquo;s audio is automatically sent to AWS HealthScribe to generate a draft note, which is ready when the scribe opens the job. The transcript on the left comes straight from the visit audio. Any highlighted text in the transcript or note can be selected to show its evidence mapping, a visual link that makes the AI generation transparent. Scribes use these tools to send providers a finished note faster, with the accuracy the evidence mapping gives them.</p>
+        </div>
+        <figure class="feature__media">
+          <picture>
+            <source media="(max-width: 700px)" srcset="../images/fluency-align/how-it-works-tall.webp" width="2400" height="3436">
+            <img src="../images/fluency-align/how-it-works-wide.webp" alt="The transcript and note editor side by side. Highlighted transcript text links to the matching text in the generated note, shown enlarged alongside" width="2400" height="1068" loading="lazy">
+          </picture>
+        </figure>
+      </article>
+
+      <article class="feature">
+        <div class="feature__text">
+          <p class="eyebrow">The outcome</p>
+          <h2>Quicker turnaround time</h2>
+          <p>Once a provider records their audio, it goes straight to a scribe, and the finished note appears in their electronic health record (EHR) for a quick review and sign-off. With the AWS integration, we confidently cut the turnaround time from 24 hours to 12, which immediately led to positive feedback from providers.</p>
+        </div>
+        <figure class="feature__media">
+          <img src="../images/fluency-align/turnaround.webp" alt="The workbench on a desktop between two phones: one recording a visit, the other showing the provider&rsquo;s note review" width="2400" height="1087" loading="lazy">
+        </figure>
+      </article>
+
+    </section>
+
+    <!-- ===================================================================
+         4. Case study deep dive
+         =================================================================== -->
+    <section class="case-study" aria-labelledby="case-study-heading">
+      <div class="case-study__header">
+        <p class="eyebrow">Process overview</p>
+        <h2 id="case-study-heading">How we got there</h2>
+      </div>
+
+      <div class="case-study__layout">
+        <nav class="case-study__toc" aria-label="Case study contents">
+          <ol>
+            <li><a href="#current-workflow">Current workflow</a></li>
+            <li><a href="#current-workbench">Current workbench</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#high-fidelity">High-fidelity iterations</a></li>
+            <li><a href="#final-product">Final product</a></li>
+            <li><a href="#what-i-learned">What I learned</a></li>
+          </ol>
+        </nav>
+
+        <div class="case-study__body">
+
+          <section id="current-workflow">
+            <h3>Current workflow</h3>
+            <figure>
+              <img src="../images/fluency-align/current-workflow.webp" alt="The current workflow: the provider focuses on the patient while the visit is recorded; the scribe reviews the recording and enters the details into the EHR; the provider reviews the encounter and makes adjustments if needed" width="1960" height="833" loading="lazy">
+            </figure>
+            <p>Fluency Align generates notes for providers so they don&rsquo;t have to spend time documenting patient visits. A provider records the visit and any extra information, a scribe listens to the recording and writes the note, and it&rsquo;s sent to the provider&rsquo;s EHR within an agreed turnaround time. The provider only needs to review, edit and sign off. Collaborating with AWS gave us the opportunity to use their AI technology to speed up the scribes&rsquo; workflow and shorten that turnaround.</p>
+          </section>
+
+          <section id="current-workbench">
+            <h3>Current version of workbench</h3>
+            <figure>
+              <img src="../images/fluency-align/current-workbench.webp" alt="The current workbench, with audio clips on the left and a blank note editor" width="2400" height="1350" loading="lazy">
+            </figure>
+            <p>The existing workbench had no AI. Scribes listened through the audio clips and wrote each note from scratch. That kept documentation accurate but was time-consuming: we expected each job to take 2.5 times the length of the recorded audio, and the turnaround time was 24 hours. Once our first providers started using it, this was the main area they wanted improved.</p>
+          </section>
+
+          <section id="research">
+            <h3>Research</h3>
+            <p>Our research focused on the draft note and evidence mapping, with questions about the transcript answered along the way. A customer deadline gave us a short timeline, which pushed us to be creative about saving time.</p>
+
+            <h4>Co-creation workshop</h4>
+            <p>We needed to figure out when to show scribes the draft note. In a 2.5-hour collaborative workshop, we presented a few concepts and asked when they&rsquo;d prefer to get the draft note and why. Scribes anonymously dot-voted for their preferred design, which led into an open discussion. It was a close split: 60% preferred AI generations appearing as they go, and 40% wanted everything available at the start. Those who wanted it as they went worried about removing irrelevant information and losing track of what they&rsquo;d written versus what the AI had. Those who wanted it upfront worried relevant information wouldn&rsquo;t appear at the right time and would go unused.</p>
+            <div class="image-rows">
+              <div class="image-row">
+                <img style="flex-grow: 1771" src="../images/fluency-align/cocreation-1.webp" alt="Workshop concept: the draft note revealed as the scribe moves through the audio" width="1898" height="1072" loading="lazy">
+                <img style="flex-grow: 1768" src="../images/fluency-align/cocreation-2.webp" alt="Workshop concept: the full draft note available from the start" width="1962" height="1110" loading="lazy">
+              </div>
+            </div>
+
+            <h4>Co-creation takeaway</h4>
+            <p>We moved forward with including the draft note at the start. It was a tough call, since scribes slightly preferred the other option, but it was much easier to build, and we were confident the AI-generated note would improve quickly, making irrelevant content less of a concern over time. It also saved future rework, as we knew the scribe&rsquo;s job would shift from writing notes to auditing them as the technology improved.</p>
+
+            <h4>Mid-fidelity prototype</h4>
+            <p>The workshop showed us that evidence mapping was hard to grasp from static screens, so we scheduled another session and tested several concepts in a mid-fidelity prototype. The main question was whether interacting with evidence should be implicit, revealed during the scribe&rsquo;s normal workflow, or explicit, needing a click to surface. Based on feedback from the first session, we also styled AI-generated text differently from scribe-written text in the note editor. We got feedback from 8 scribes in this session.</p>
+            <figure>
+              <img src="../images/fluency-align/mid-fi.webp" alt="Mid-fidelity prototype of the workbench with AI-generated text styled differently in the note editor" width="2281" height="1285" loading="lazy">
+            </figure>
+
+            <h4>Mid-fidelity takeaway</h4>
+            <p>Implicit interaction was the clear preference. Most scribes liked how obvious it was which text was AI-generated, and that they could see where it came from without the extra click an explicit workflow would add. It also meant their existing editing interactions stayed the same.</p>
+          </section>
+
+          <section id="high-fidelity">
+            <h3>High-fidelity iterations</h3>
+            <div class="image-grid">
+              <img src="../images/fluency-align/hi-fi-1.webp" alt="High-fidelity iteration of the workbench with evidence mapping" width="1440" height="810" loading="lazy">
+              <img src="../images/fluency-align/hi-fi-2.webp" alt="High-fidelity iteration of the workbench with evidence mapping" width="1440" height="813" loading="lazy">
+              <img src="../images/fluency-align/hi-fi-3.webp" alt="High-fidelity iteration of the workbench with evidence mapping" width="1440" height="810" loading="lazy">
+              <img src="../images/fluency-align/hi-fi-4.webp" alt="High-fidelity iteration of the workbench with evidence mapping" width="1440" height="813" loading="lazy">
+            </div>
+            <div class="image-rows">
+              <div class="image-row">
+                <img style="flex-grow: 1128" src="../images/fluency-align/hi-fi-5.webp" alt="Explorations of the control for jumping between pieces of evidence" width="1272" height="1128" loading="lazy">
+                <img style="flex-grow: 1204" src="../images/fluency-align/hi-fi-6.webp" alt="Explorations of how edited AI text is styled: unstyled, still highlighted, or underlined" width="643" height="534" loading="lazy">
+              </div>
+            </div>
+            <p>With a clear direction from our two research sessions, we explored adding the complete draft note with implicit evidence mapping. We kept refining how best to show the link between evidence in the transcript and the note, and how to indicate when the evidence sits above or below the visible part of the transcript.</p>
+          </section>
+
+          <section id="final-product">
+            <h3>Final product</h3>
+            <figure>
+              <img src="../images/fluency-align/final-product.webp" alt="The final workbench design on a desktop monitor" width="2304" height="1764" loading="lazy">
+            </figure>
+            <p>The AWS integration brought several tools that enhance the scribe workflow. The draft note saves time by giving scribes a starting point. The transcript is a visual aid for the audio and lets them glance ahead during slow stretches. Evidence mapping ties the two together, creating a trustworthy link between the generated note and the conversation. This let us cut turnaround time from 24 hours to 12, while giving the natural language understanding (NLU) models a training ground to improve quickly.</p>
+          </section>
+
+          <section id="what-i-learned">
+            <h3>What I learned</h3>
+            <p>I learned to make sure the concepts I share are at a fidelity people can understand in the format I&rsquo;m sharing them. We expected to get feedback on evidence mapping in the co-creation workshop, but the low-fidelity designs didn&rsquo;t get the concept across, so we had to squeeze in an extra mid-fidelity prototype. We ended up in a good spot, but the extra session pushed back our handoff. It&rsquo;s made me more thoughtful about what fidelity a concept needs to get useful feedback from different stakeholders.</p>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. Next project
+         =================================================================== -->
+    <nav class="next-project" aria-label="Next project">
+      <a href="ponder.html">
+        <span class="eyebrow">Next project</span>
+        <strong>Ponder &rarr;</strong>
+      </a>
+    </nav>
+
+  </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Jackson Bryan</p>
+    <ul>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="mailto:jacksonbryan280@gmail.com">Email</a></li>
+    </ul>
+  </footer>
+
+  <script src="../js/project-hero.js?v=20261009b" defer></script>
+
+</body>
+</html>

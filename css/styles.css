@@ -757,6 +757,25 @@ footer p {
   background: var(--surface);
 }
 
+/* An even grid of screens, two across. */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-block: 2.5rem;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: calc(var(--radius) / 2);
+  background: var(--surface);
+}
+
+/* Lets a <picture> (e.g. different crops for phones) sit in any media slot. */
+picture {
+  display: block;
+}
+
 figcaption {
   margin-top: 0.75rem;
   color: var(--muted);

@@ -24,10 +24,14 @@ The site is built with plain HTML, CSS and a little JavaScript, with no framewor
 portfolio/
 ├── index.html              # Home page
 ├── projects/
+│   ├── fluency-align.html  # Fluency Align case study
 │   ├── ponder.html         # Ponder case study
+│   ├── lenovo.html         # Lenovo Play case study
 │   └── project-one.html    # Blank project page template
 ├── images/
-│   ├── ponder/             # Ponder images (exported from Figma)
+│   ├── fluency-align/      # Project images (Fluency Align and Lenovo
+│   ├── lenovo/             #   come from the Webflow site, Ponder from Figma)
+│   ├── ponder/
 │   └── project-one/        # Template placeholder images
 ├── css/
 │   └── styles.css          # Site styles
@@ -42,7 +46,7 @@ Safari 18.2+; other browsers navigate normally). To add a project, copy
 `projects/project-one.html` and give the card and hero a matching, unique
 `view-transition-name` (e.g. `project-two-media`, `project-two-title`).
 
-The stylesheet and script are linked with a version number (`?v=20261009`).
+The stylesheet and script are linked with a version number (`?v=20261009b`).
 When you change `css/styles.css` or `js/project-hero.js`, bump that number in
 every HTML file so browsers fetch the new files instead of a cached copy.
 

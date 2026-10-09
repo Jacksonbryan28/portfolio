@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=20261009">
+  <link rel="stylesheet" href="css/styles.css?v=20261009b">
 </head>
 <body>
 
@@ -36,8 +36,23 @@
         Each card links to a project page. Its image, title, description and
         tags morph into the project page's hero using matching
         view-transition-names. Give every project its own unique names
-        (project-one-media, project-two-media...).
+        (lenovo-media, ponder-media...).
       -->
+      <article class="project-card">
+        <a href="projects/fluency-align.html">
+          <div class="project-card__media" style="view-transition-name: fluency-media">
+            <img src="images/fluency-align/hero.webp" alt="" width="2400" height="937">
+          </div>
+          <h3 style="view-transition-name: fluency-title">Fluency Align</h3>
+          <p style="view-transition-name: fluency-desc">AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.</p>
+          <ul class="tags" style="view-transition-name: fluency-tags">
+            <li>Enterprise UX</li>
+            <li>AI</li>
+            <li>Healthcare</li>
+          </ul>
+        </a>
+      </article>
+
       <article class="project-card">
         <a href="projects/ponder.html">
           <div class="project-card__media" style="view-transition-name: ponder-media">
@@ -54,15 +69,16 @@
       </article>
 
       <article class="project-card">
-        <a href="#">
-          <div class="project-card__media" style="view-transition-name: project-two-media">
-            <img src="images/project-two/hero.svg" alt="" width="1600" height="900">
+        <a href="projects/lenovo.html">
+          <div class="project-card__media" style="view-transition-name: lenovo-media">
+            <img src="images/lenovo/hero.webp" alt="" width="2400" height="937">
           </div>
-          <h3 style="view-transition-name: project-two-title">Project Two</h3>
-          <p style="view-transition-name: project-two-desc">A short description of what this project does and why you built it.</p>
-          <ul class="tags" style="view-transition-name: project-two-tags">
-            <li>Brand</li>
-            <li>Visual design</li>
+          <h3 style="view-transition-name: lenovo-title">Lenovo Play</h3>
+          <p style="view-transition-name: lenovo-desc">An educational toy and companion apps that introduce children to STEAM through play.</p>
+          <ul class="tags" style="view-transition-name: lenovo-tags">
+            <li>UX research</li>
+            <li>Product design</li>
+            <li>Toy + apps</li>
           </ul>
         </a>
       </article>
@@ -73,9 +89,9 @@
   <footer>
     <p>&copy; 2026 Jackson Bryan</p>
     <ul>
-      <li><a href="#">GitHub</a></li>
+      <li><a href="https://github.com/jacksonbryan28">GitHub</a></li>
       <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">Email</a></li>
+      <li><a href="mailto:jacksonbryan280@gmail.com">Email</a></li>
     </ul>
   </footer>
 
