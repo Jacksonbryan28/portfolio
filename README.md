@@ -42,6 +42,10 @@ Safari 18.2+; other browsers navigate normally). To add a project, copy
 `projects/project-one.html` and give the card and hero a matching, unique
 `view-transition-name` (e.g. `project-two-media`, `project-two-title`).
 
+The stylesheet and script are linked with a version number (`?v=20261009`).
+When you change `css/styles.css` or `js/project-hero.js`, bump that number in
+every HTML file so browsers fetch the new files instead of a cached copy.
+
 ## Viewing it locally
 
 Clone the repo and start a local web server from inside the folder:

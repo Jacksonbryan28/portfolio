@@ -6,6 +6,10 @@
 // `distance` pixels, and sticks below the header. So for the first `distance`
 // pixels of scrolling nothing on the page moves; that scroll drives the
 // expansion instead. Progress (0 → 1) is passed to CSS as --p.
+//
+// In browsers with scroll-driven animations, CSS works out --p from the scroll
+// position itself (in sync with the scroll, so no lag); this script then only
+// measures sizes. Elsewhere it updates --p on every scroll frame.
 (() => {
   const hold = document.querySelector('.project-hold');
   const main = hold && hold.querySelector('main');
@@ -14,6 +18,7 @@
   if (!media || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const maxWidth = 1440;
+  const scrollDriven = window.CSS && CSS.supports('animation-timeline: scroll()');
   const header = document.querySelector('header');
   let distance = 0;
   let headerHeight = 0;
@@ -42,7 +47,10 @@
     hero.style.setProperty('--square', target === viewport ? 1 : 0);
     hero.style.setProperty('--rise', rise + 'px');
     hero.style.setProperty('--h0', box.height + 'px');
+    hero.style.setProperty('--hold-distance', distance + 'px');
     hero.classList.add('is-expanding');
+    hero.classList.toggle('is-scroll-driven', scrollDriven);
+    hold.style.setProperty('--hold-top', headerHeight + 'px');
     hold.classList.add('is-holding');
 
     sizeHold();
@@ -57,6 +65,7 @@
 
   function update() {
     ticking = false;
+    if (scrollDriven) return;
     const scrolled = headerHeight - hold.getBoundingClientRect().top;
     const p = Math.min(Math.max(scrolled / distance, 0), 1);
     hero.style.setProperty('--p', p.toFixed(4));
@@ -70,7 +79,7 @@
   }
 
   measure();
-  addEventListener('scroll', onScroll, { passive: true });
+  if (!scrollDriven) addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', measure);
   addEventListener('pageshow', measure);
   if (window.ResizeObserver) new ResizeObserver(sizeHold).observe(main);

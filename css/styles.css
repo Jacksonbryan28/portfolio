@@ -474,7 +474,9 @@ footer p {
 
 .project-hold.is-holding > main {
   position: sticky;
-  top: var(--header-h);
+  /* The header's real height (including its border), measured by the script,
+     so the page doesn't shift as it starts to hold. */
+  top: var(--hold-top, var(--header-h));
 }
 
 .project-hero.is-expanding .project-hero__media {
@@ -484,6 +486,28 @@ footer p {
   margin-top: calc(var(--rise) * var(--p, 0) * -1);
   margin-inline: calc(var(--bleed) * var(--p, 0) * -1);
   border-radius: calc(var(--radius) * (1 - var(--p, 0) * var(--square, 1)));
+}
+
+/* Where supported, drive --p straight from the scroll position with a
+   scroll-driven animation. It updates in the same frame as the scroll, so
+   it doesn't lag a frame behind like the script fallback does. */
+@property --p {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes project-hero-expand {
+  from { --p: 0; }
+  to { --p: 1; }
+}
+
+@supports (animation-timeline: scroll()) {
+  .project-hero.is-scroll-driven {
+    animation: project-hero-expand linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px var(--hold-distance, 480px);
+  }
 }
 
 /* --- 2. Overview with sticky details ---------------------------------- */
