@@ -29,9 +29,9 @@ portfolio/
 │   ├── lenovo.html         # Lenovo Play case study
 │   └── project-one.html    # Blank project page template
 ├── images/
-│   ├── fluency-align/      # Project images (Fluency Align and Lenovo
-│   ├── lenovo/             #   come from the Webflow site, Ponder from Figma)
-│   ├── ponder/
+│   ├── fluency-align/      # Project images, from the Webflow site (the
+│   ├── lenovo/             #   Ponder hero and three ideation images are
+│   ├── ponder/             #   exports from Figma)
 │   └── project-one/        # Template placeholder images
 ├── css/
 │   └── styles.css          # Site styles
