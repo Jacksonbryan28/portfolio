@@ -33,10 +33,12 @@
   object-fit: cover;
 }
 
-/* The image and title scale between a small card and a large hero. Rather
-   than cross-fading a blurry upscaled snapshot with a sharp one, show only
-   the large (hero) snapshot and let it scale: the new one when arriving on a
-   project page, the old one when going back to the home page. */
+/* The image, title, description and tags move and scale between the card
+   and the hero. Rather than cross-fading two snapshots (which blurs, and
+   doubles up text), show only the hero's snapshot and let it travel: the new
+   one when arriving on a project page, the old one when going back home.
+   This works because each piece is laid out the same way in both places
+   (same aspect ratio, letterforms, line length and line spacing). */
 .project-page::view-transition-old(*.project-media),
 .project-page::view-transition-old(*.project-title),
 :root:not(.project-page)::view-transition-new(*.project-media),
@@ -50,26 +52,6 @@
 :root:not(.project-page)::view-transition-old(*.project-media),
 :root:not(.project-page)::view-transition-old(*.project-title) {
   animation: none;
-}
-
-/* Description and tags keep their natural size and cross-fade as they glide
-   into place, so the text never stretches. (The title is left to scale.) */
-::view-transition-old(*.project-text),
-::view-transition-new(*.project-text) {
-  width: auto;
-  height: auto;
-}
-
-/* Fade the old text out before the new text fades in, so lines that wrap
-   differently on each page never overlap. */
-::view-transition-old(*.project-text) {
-  animation-duration: 0.2s;
-}
-
-::view-transition-new(*.project-text) {
-  animation-delay: 0.2s;
-  animation-duration: 0.35s;
-  animation-fill-mode: both;
 }
 
 /* ==========================================================================
@@ -389,13 +371,17 @@ footer p {
 
 .project-card p {
   width: fit-content;
+  /* Same line length (in characters) and spacing as the hero summary, so
+     the text wraps identically and can scale between the two. */
+  max-width: 40ch;
   margin-bottom: 0.75rem;
   color: var(--muted);
+  line-height: 1.45;
 }
 
 .project-card p,
 .project-card .tags {
-  view-transition-class: project-text;
+  view-transition-class: project-title;
 }
 
 .tags {
@@ -509,13 +495,15 @@ footer p {
   max-width: 40ch;
   margin-bottom: 1.5rem;
   color: var(--muted);
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  /* Never smaller than the card description (1.0625rem), so on phones both
+     wrap identically for the view transition. */
+  font-size: clamp(1.0625rem, 2vw, 1.5rem);
   line-height: 1.45;
 }
 
 .project-hero__summary,
 .project-hero__tags {
-  view-transition-class: project-text;
+  view-transition-class: project-title;
 }
 
 /* Scroll-to-expand (driven by js/project-hero.js). The page's <main> sticks
