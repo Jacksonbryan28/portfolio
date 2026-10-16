@@ -38,6 +38,7 @@ portfolio/
 ├── css/
 │   └── styles.css          # Site styles
 ├── js/
+│   ├── home-transitions.js # Keeps the clicked project on top during transitions
 │   └── project-hero.js     # Expands the project hero to full width on scroll
 └── README.md
 ```
@@ -49,7 +50,7 @@ Safari 18.2+; other browsers navigate normally). To add a project, copy
 `view-transition-name` (e.g. `project-two-media`, `project-two-title`).
 
 The stylesheet and script are linked with a version number (`?v=20261016b`).
-When you change `css/styles.css` or `js/project-hero.js`, bump that number in
+When you change `css/styles.css` or a file in `js/`, bump that number in
 every HTML file so browsers fetch the new files instead of a cached copy.
 
 ## Viewing it locally

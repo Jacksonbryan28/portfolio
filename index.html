@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
   <link rel="stylesheet" href="css/styles.css?v=20261016b">
+  <!-- Make sure the project cards are parsed before the first frame, so the
+       transition script can pick which card travels on top. -->
+  <link rel="expect" href="#projects" blocking="render">
+  <script src="js/home-transitions.js?v=20261016b"></script>
 </head>
 <body>
 
