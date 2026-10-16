@@ -38,19 +38,22 @@
    doubles up text), show only the hero's snapshot and let it travel: the new
    one when arriving on a project page, the old one when going back home.
    This works because each piece is laid out the same way in both places
-   (same aspect ratio, letterforms, line length and line spacing). */
-.project-page::view-transition-old(*.project-media),
-.project-page::view-transition-old(*.project-title),
-:root:not(.project-page)::view-transition-new(*.project-media),
-:root:not(.project-page)::view-transition-new(*.project-title) {
+   (same aspect ratio, letterforms, line length and line spacing).
+   These rules only apply when a piece exists on both pages (its snapshot
+   isn't an only child). The other project cards exist on the home page
+   alone, so they keep the default fade in and out. */
+.project-page::view-transition-old(*.project-media):not(:only-child),
+.project-page::view-transition-old(*.project-title):not(:only-child),
+:root:not(.project-page)::view-transition-new(*.project-media):not(:only-child),
+:root:not(.project-page)::view-transition-new(*.project-title):not(:only-child) {
   animation: none;
   opacity: 0;
 }
 
-.project-page::view-transition-new(*.project-media),
-.project-page::view-transition-new(*.project-title),
-:root:not(.project-page)::view-transition-old(*.project-media),
-:root:not(.project-page)::view-transition-old(*.project-title) {
+.project-page::view-transition-new(*.project-media):not(:only-child),
+.project-page::view-transition-new(*.project-title):not(:only-child),
+:root:not(.project-page)::view-transition-old(*.project-media):not(:only-child),
+:root:not(.project-page)::view-transition-old(*.project-title):not(:only-child) {
   animation: none;
 }
 
