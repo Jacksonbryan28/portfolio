@@ -39,18 +39,42 @@ portfolio/
 │   └── styles.css          # Site styles
 ├── js/
 │   └── project-hero.js     # Expands the project hero to full width on scroll
+├── partials/               # Shared <head> links, header and footer
+├── tools/
+│   └── sync.mjs            # Copies the partials into every page (see below)
 └── README.md
 ```
 
 Clicking a project card on the home page morphs its image, title, description and
 tags into the project page's hero using cross-document view transitions (Chrome, Edge and
 Safari 18.2+; other browsers navigate normally). To add a project, copy
-`projects/project-one.html` and give the card and hero a matching, unique
-`view-transition-name` (e.g. `project-two-media`, `project-two-title`).
+`projects/project-one.html`, then give its hero and its home page card the same
+`data-project` (e.g. `data-project="project-two"`) and run the sync script below.
 
-The stylesheet and script are linked with a version number (`?v=20261016`).
-When you change `css/styles.css` or `js/project-hero.js`, bump that number in
-every HTML file so browsers fetch the new files instead of a cached copy.
+## Shared header, footer and versions
+
+The font links, stylesheet link, header and footer live once in `partials/`.
+Each page keeps a full copy between `<!-- shared:NAME -->` markers, so the
+pages are still plain HTML with nothing to build before deploying. After you
+change a partial, CSS or JS file, or add a page or project, run:
+
+```bash
+node tools/sync.mjs
+```
+
+and commit the pages it updates. It:
+
+- copies `partials/head.html`, `header.html` and `footer.html` into every page,
+  fixing relative paths and marking the current page's nav link;
+- sets the `?v=` on every CSS and JS link to a hash of that file, so browsers
+  fetch it again only when it has changed (no more bumping it by hand);
+- writes each card's and hero's `view-transition-name` from its
+  `data-project` and `data-vt` attributes, so the two always match.
+
+The header and footer stay in the HTML itself rather than being loaded with
+JavaScript, so they're on screen at first paint and the header holds still
+during page transitions. `node tools/sync.mjs --check` changes nothing and
+fails if a page is out of date; GitHub runs it on every push.
 
 ## Viewing it locally
 
