@@ -13,13 +13,16 @@
   <meta property="og:url" content="https://jacksonbryan28.github.io/portfolio/projects/fluency-align.html">
   <meta property="og:image" content="https://jacksonbryan28.github.io/portfolio/images/fluency-align/hero.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <!-- shared:head -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="../css/styles.css?v=20261125b">
+  <link rel="stylesheet" href="../css/styles.css?v=c8efeedb">
+  <!-- /shared:head -->
 </head>
 <body>
 
+  <!-- shared:header -->
   <header>
     <nav>
       <a href="../index.html" class="logo">Jackson Bryan</a>
@@ -29,6 +32,7 @@
       </ul>
     </nav>
   </header>
+  <!-- /shared:header -->
 
   <!-- The hold container gives the page extra scroll room so it can stay
        still while the hero image expands (see js/project-hero.js). -->
@@ -38,18 +42,19 @@
     <!-- ===================================================================
          1. Hero
          Same order as the home page card: image, name, description, tags.
-         Each piece shares a view-transition-name with its counterpart on the
-         card, so the card expands into this hero when you click through.
+         data-project matches the card on the home page, and tools/sync.mjs
+         gives each data-vt piece the same view-transition-name as its
+         counterpart on the card, so the card expands into this hero.
          =================================================================== -->
-    <section class="project-hero">
-      <figure class="project-hero__media" style="view-transition-name: fluency-media">
+    <section class="project-hero" data-project="fluency">
+      <figure class="project-hero__media" data-vt="media" style="view-transition-name: fluency-media">
         <img src="../images/fluency-align/hero.webp" alt="The M*Modal Fluency Align logo on a dark banner" width="2400" height="937">
       </figure>
 
       <div class="project-hero__intro">
-        <h1 class="project-hero__title" style="view-transition-name: fluency-title">Fluency Align</h1>
-        <p class="project-hero__summary" style="view-transition-name: fluency-desc">AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.</p>
-        <ul class="tags project-hero__tags" style="view-transition-name: fluency-tags">
+        <h1 class="project-hero__title" data-vt="title" style="view-transition-name: fluency-title">Fluency Align</h1>
+        <p class="project-hero__summary" data-vt="desc" style="view-transition-name: fluency-desc">AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.</p>
+        <ul class="tags project-hero__tags" data-vt="tags" style="view-transition-name: fluency-tags">
           <li>Enterprise UX</li>
           <li>AI</li>
           <li>Healthcare</li>
@@ -258,15 +263,18 @@
   </main>
   </div>
 
+  <!-- shared:footer -->
   <footer>
     <p>&copy; 2026 Jackson Bryan</p>
     <ul>
+      <li><a href="https://github.com/jacksonbryan28">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/jacksonbryan28/">LinkedIn</a></li>
       <li><a href="mailto:jacksonbryan280@gmail.com">Email</a></li>
     </ul>
   </footer>
+  <!-- /shared:footer -->
 
-  <script src="../js/project-hero.js?v=20261125b" defer></script>
+  <script src="../js/project-hero.js?v=85af9ac8" defer></script>
 
 </body>
 </html>

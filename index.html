@@ -13,26 +13,30 @@
   <meta property="og:url" content="https://jacksonbryan28.github.io/portfolio/">
   <meta property="og:image" content="https://jacksonbryan28.github.io/portfolio/images/fluency-align/hero.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <!-- shared:head -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=20261125b">
+  <link rel="stylesheet" href="css/styles.css?v=c8efeedb">
+  <!-- /shared:head -->
   <!-- Make sure the project cards are parsed before the first frame, so the
        transition script can pick which card travels on top. -->
   <link rel="expect" href="#projects" blocking="render">
-  <script src="js/home-transitions.js?v=20261125b"></script>
+  <script src="js/home-transitions.js?v=26535ca1"></script>
 </head>
 <body>
 
+  <!-- shared:header -->
   <header>
     <nav>
       <a href="index.html" class="logo">Jackson Bryan</a>
       <ul>
-        <li><a href="#projects">Work</a></li>
+        <li><a href="index.html#projects">Work</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
   </header>
+  <!-- /shared:header -->
 
   <main>
 
@@ -48,18 +52,19 @@
 
       <!--
         Each card links to a project page. Its image, title, description and
-        tags morph into the project page's hero using matching
-        view-transition-names. Give every project its own unique names
-        (lenovo-media, ponder-media...).
+        tags morph into the project page's hero. Give the card the same
+        data-project as the hero on its page, and mark the pieces with
+        data-vt="media|title|desc|tags". tools/sync.mjs then writes matching
+        view-transition-names (ponder-media, ponder-title...).
       -->
-      <article class="project-card">
+      <article class="project-card" data-project="fluency">
         <a href="projects/fluency-align.html">
-          <div class="project-card__media" style="view-transition-name: fluency-media">
+          <div class="project-card__media" data-vt="media" style="view-transition-name: fluency-media">
             <img src="images/fluency-align/hero.webp" alt="" width="2400" height="937">
           </div>
-          <h3 style="view-transition-name: fluency-title">Fluency Align</h3>
-          <p style="view-transition-name: fluency-desc">AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.</p>
-          <ul class="tags" style="view-transition-name: fluency-tags">
+          <h3 data-vt="title" style="view-transition-name: fluency-title">Fluency Align</h3>
+          <p data-vt="desc" style="view-transition-name: fluency-desc">AI tools in the scribe workbench that cut note turnaround time from 24 hours to 12.</p>
+          <ul class="tags" data-vt="tags" style="view-transition-name: fluency-tags">
             <li>Enterprise UX</li>
             <li>AI</li>
             <li>Healthcare</li>
@@ -67,14 +72,14 @@
         </a>
       </article>
 
-      <article class="project-card">
+      <article class="project-card" data-project="ponder">
         <a href="projects/ponder.html">
-          <div class="project-card__media" style="view-transition-name: ponder-media">
+          <div class="project-card__media" data-vt="media" style="view-transition-name: ponder-media">
             <img src="images/ponder/hero.webp" alt="" width="1440" height="561">
           </div>
-          <h3 style="view-transition-name: ponder-title">Ponder</h3>
-          <p style="view-transition-name: ponder-desc">An emotional wellness device and app that helps overthinkers reframe their thoughts.</p>
-          <ul class="tags" style="view-transition-name: ponder-tags">
+          <h3 data-vt="title" style="view-transition-name: ponder-title">Ponder</h3>
+          <p data-vt="desc" style="view-transition-name: ponder-desc">An emotional wellness device and app that helps overthinkers reframe their thoughts.</p>
+          <ul class="tags" data-vt="tags" style="view-transition-name: ponder-tags">
             <li>UX research</li>
             <li>Product design</li>
             <li>Device + app</li>
@@ -82,14 +87,14 @@
         </a>
       </article>
 
-      <article class="project-card">
+      <article class="project-card" data-project="lenovo">
         <a href="projects/lenovo.html">
-          <div class="project-card__media" style="view-transition-name: lenovo-media">
+          <div class="project-card__media" data-vt="media" style="view-transition-name: lenovo-media">
             <img src="images/lenovo/hero.webp" alt="" width="2400" height="937">
           </div>
-          <h3 style="view-transition-name: lenovo-title">Lenovo Play</h3>
-          <p style="view-transition-name: lenovo-desc">An educational toy and companion apps that introduce children to STEAM through play.</p>
-          <ul class="tags" style="view-transition-name: lenovo-tags">
+          <h3 data-vt="title" style="view-transition-name: lenovo-title">Lenovo Play</h3>
+          <p data-vt="desc" style="view-transition-name: lenovo-desc">An educational toy and companion apps that introduce children to STEAM through play.</p>
+          <ul class="tags" data-vt="tags" style="view-transition-name: lenovo-tags">
             <li>UX research</li>
             <li>Product design</li>
             <li>Toy + apps</li>
@@ -100,6 +105,7 @@
 
   </main>
 
+  <!-- shared:footer -->
   <footer>
     <p>&copy; 2026 Jackson Bryan</p>
     <ul>
@@ -108,6 +114,7 @@
       <li><a href="mailto:jacksonbryan280@gmail.com">Email</a></li>
     </ul>
   </footer>
+  <!-- /shared:footer -->
 
 </body>
 </html>
