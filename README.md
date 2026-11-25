@@ -68,6 +68,16 @@ site, but the page transitions only play when it's served from a web address.
 If styles look out of date, hard refresh with Cmd+Shift+R (Ctrl+Shift+R on
 Windows).
 
+## Previewing a branch
+
+Every branch other than `main` is published as a preview at
+`https://jacksonbryan28.github.io/portfolio/preview/<branch-name>/`, about a
+minute after each push, so you can check changes on your phone before they
+reach the live site. The link is also posted on the branch's pull request.
+Previews are hidden from search engines and disappear when the branch is
+deleted. This is done by `.github/workflows/pages.yml`, which needs
+Settings → Pages → Source set to "GitHub Actions".
+
 ## Get in touch
 
 I'm always happy to talk about design, collaborations, or new opportunities. You can find me on [LinkedIn](https://www.linkedin.com/in/jacksonbryan28/) and GitHub at [@jacksonbryan28](https://github.com/jacksonbryan28).

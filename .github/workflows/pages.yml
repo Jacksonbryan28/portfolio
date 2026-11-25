@@ -1,0 +1,85 @@
+# Publishes the site to GitHub Pages, plus a preview of every other branch at
+#   https://<owner>.github.io/<repo>/preview/<branch-name>/
+# Requires Settings > Pages > Source set to "GitHub Actions".
+#
+# The github-pages environment only accepts deploys from main, so a push to
+# any other branch asks for a fresh deploy from main, which rebuilds the
+# site with every branch's latest preview.
+name: Pages
+
+on:
+  push:
+  delete:
+  pull_request:
+    types: [opened, reopened]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  request-preview:
+    if: github.event_name == 'push' && github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Ask main to redeploy with this branch's preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main
+
+  comment-preview-link:
+    if: >-
+      (github.event_name == 'push' && github.ref != 'refs/heads/main') ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Post the preview link on the branch's pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          pr=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$BRANCH" --state open --json number --jq '.[0].number')
+          [ -n "$pr" ] || { echo "No open pull request for $BRANCH"; exit 0; }
+          marker="<!-- branch-preview-link -->"
+          if gh pr view "$pr" --repo "$GITHUB_REPOSITORY" --json comments --jq '.comments[].body' | grep -qF "$marker"; then
+            echo "Preview link already posted"; exit 0
+          fi
+          owner="${GITHUB_REPOSITORY_OWNER,,}"
+          repo="${GITHUB_REPOSITORY#*/}"
+          path=$(printf '%s' "$BRANCH" | sed 's#[^A-Za-z0-9._/-]#-#g')
+          url="https://${owner}.github.io/${repo}/preview/${path}/"
+          gh pr comment "$pr" --repo "$GITHUB_REPOSITORY" --body "$marker
+          📱 **Preview:** ${url}
+
+          Updates about a minute after each push to this branch."
+
+  deploy:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'delete' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build site and branch previews
+        run: .github/scripts/build-pages.sh _site "${{ steps.pages.outputs.base_url }}"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
