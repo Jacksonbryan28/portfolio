@@ -3,13 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson Bryan | Portfolio</title>
+  <title>Jackson Bryan | UX Designer</title>
+  <meta name="description" content="Jackson Bryan is a UX designer who makes complex work feel simple, from AI tools for medical scribes to a wellness device for overthinkers.">
+  <!-- Social previews (site is served from GitHub Pages) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jackson Bryan">
+  <meta property="og:title" content="Jackson Bryan | UX Designer">
+  <meta property="og:description" content="Jackson Bryan is a UX designer who makes complex work feel simple, from AI tools for medical scribes to a wellness device for overthinkers.">
+  <meta property="og:url" content="https://jacksonbryan28.github.io/portfolio/">
+  <meta property="og:image" content="https://jacksonbryan28.github.io/portfolio/images/fluency-align/hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- shared:head -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=c1dd3654">
+  <link rel="stylesheet" href="css/styles.css?v=c8efeedb">
   <!-- /shared:head -->
+  <!-- Make sure the project cards are parsed before the first frame, so the
+       transition script can pick which card travels on top. -->
+  <link rel="expect" href="#projects" blocking="render">
+  <script src="js/home-transitions.js?v=26535ca1"></script>
 </head>
 <body>
 
@@ -18,7 +31,7 @@
     <nav>
       <a href="index.html" class="logo">Jackson Bryan</a>
       <ul>
-        <li><a href="index.html" aria-current="page">UX</a></li>
+        <li><a href="index.html#projects">Work</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
@@ -28,13 +41,14 @@
   <main>
 
     <section id="hero">
-      <h1>Jackson Bryan</h1>
-      <p>A short tagline about what you do and what you love building.</p>
+      <p class="eyebrow">Jackson Bryan &middot; UX designer</p>
+      <h1>I make complex work feel simple.</h1>
+      <p>I design tools for people with demanding jobs, grounded in research with the people who use them. At Solventum, I brought AI into the medical scribe workbench and helped cut note turnaround from 24 hours to 12.</p>
       <a href="#projects" class="button">View my work</a>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Selected work</h2>
 
       <!--
         Each card links to a project page. Its image, title, description and

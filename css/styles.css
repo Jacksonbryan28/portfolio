@@ -38,20 +38,43 @@
    doubles up text), show only the hero's snapshot and let it travel: the new
    one when arriving on a project page, the old one when going back home.
    This works because each piece is laid out the same way in both places
-   (same aspect ratio, letterforms, line length and line spacing). */
-.project-page::view-transition-old(*.project-media),
-.project-page::view-transition-old(*.project-title),
-:root:not(.project-page)::view-transition-new(*.project-media),
-:root:not(.project-page)::view-transition-new(*.project-title) {
+   (same aspect ratio, letterforms, line length and line spacing).
+   These rules only apply when a piece exists on both pages (its snapshot
+   isn't an only child). The other project cards exist on the home page
+   alone, so they keep the default fade in and out. */
+.project-page::view-transition-old(*.project-media):not(:only-child),
+.project-page::view-transition-old(*.project-title):not(:only-child),
+:root:not(.project-page)::view-transition-new(*.project-media):not(:only-child),
+:root:not(.project-page)::view-transition-new(*.project-title):not(:only-child) {
   animation: none;
   opacity: 0;
 }
 
-.project-page::view-transition-new(*.project-media),
-.project-page::view-transition-new(*.project-title),
-:root:not(.project-page)::view-transition-old(*.project-media),
-:root:not(.project-page)::view-transition-old(*.project-title) {
+.project-page::view-transition-new(*.project-media):not(:only-child),
+.project-page::view-transition-new(*.project-title):not(:only-child),
+:root:not(.project-page)::view-transition-old(*.project-media):not(:only-child),
+:root:not(.project-page)::view-transition-old(*.project-title):not(:only-child) {
   animation: none;
+}
+
+/* The rest of the page: fade the old page out, then the new one in, rather
+   than cross-fading them. A cross-fade shows both pages' text on top of each
+   other halfway through (e.g. a project's details over the home page's other
+   cards). The travelling project pieces stay on top the whole time. */
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: vt-fade-out 0.2s ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in 0.35s 0.2s ease-out both;
 }
 
 /* ==========================================================================
@@ -301,8 +324,8 @@ footer p {
   padding-block: clamp(80px, 14vw, 180px) clamp(48px, 8vw, 96px);
 }
 
-#hero p {
-  max-width: 36ch;
+#hero p:not(.eyebrow) {
+  max-width: 52ch;
   color: var(--muted);
   font-size: clamp(1.125rem, 2vw, 1.375rem);
 }
@@ -871,4 +894,9 @@ blockquote cite {
 
 .next-project a:hover strong {
   color: var(--accent);
+}
+
+/* Keep the home headline to two or three lines at large sizes. */
+#hero h1 {
+  max-width: 14ch;
 }

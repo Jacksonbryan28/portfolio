@@ -38,6 +38,7 @@ portfolio/
 ├── css/
 │   └── styles.css          # Site styles
 ├── js/
+│   ├── home-transitions.js # Keeps the clicked project on top during transitions
 │   └── project-hero.js     # Expands the project hero to full width on scroll
 ├── partials/               # Shared <head> links, header and footer
 ├── tools/
