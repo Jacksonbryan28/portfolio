@@ -57,6 +57,26 @@
   animation: none;
 }
 
+/* The rest of the page: fade the old page out, then the new one in, rather
+   than cross-fading them. A cross-fade shows both pages' text on top of each
+   other halfway through (e.g. a project's details over the home page's other
+   cards). The travelling project pieces stay on top the whole time. */
+@keyframes vt-fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: vt-fade-out 0.2s ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in 0.35s 0.2s ease-out both;
+}
+
 /* ==========================================================================
    Tokens
    ========================================================================== */

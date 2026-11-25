@@ -43,10 +43,14 @@
     if (!from) {
       try { from = sessionStorage.getItem(STORE); } catch (err) {}
     }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => nameOnly(from), { once: true });
-    } else {
+    // The <link rel="expect"> in the <head> holds the first frame until the
+    // cards are parsed, so rename them now. Waiting for DOMContentLoaded
+    // could miss the snapshot on a slow connection, and then every card
+    // would travel in page order, sliding over the one coming home.
+    if (cards().length) {
       nameOnly(from);
+    } else {
+      document.addEventListener('DOMContentLoaded', () => nameOnly(from), { once: true });
     }
   });
 })();
